@@ -5,13 +5,6 @@ API desenvolvida em **Node.js** para gerenciamento de uma escola de educação i
 ## 📋 Índice
 - [Sobre](#-sobre)
 - [Tecnologias](#-tecnologias)
-- [Instalação](#-instalação)
-- [Configuração](#-configuração)
-- [Scripts Disponíveis](#-scripts-disponíveis)
-- [Rotas Principais](#-rotas-principais)
-- [Exemplo de Uso](#-exemplo-de-uso)
-- [Licença](#-licença)
-
 ---
 
 ## 📖 Sobre
