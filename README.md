@@ -1,4 +1,4 @@
-# 🚀 Nome do Projeto
+# 🚀 SIGA API
 
 API desenvolvida em **Node.js** para gerenciamento de uma escola de educação infantil.
 
