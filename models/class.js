@@ -3,6 +3,11 @@ const { DataTypes, Model } = require("sequelize");
 class Class extends Model {
   static init(sequelize) {
     super.init({
+      id: {
+        unique: true,
+        primaryKey: true,
+        type: DataTypes.INTEGER,
+      },
       name: {
         type: DataTypes.STRING,
         allowNull: false,

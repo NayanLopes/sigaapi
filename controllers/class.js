@@ -29,14 +29,9 @@ module.exports = {
     });
   },
   async show(request, response) {
-    // pegar o classId do request.params
     const {
       params: { id },
     } = request;
-
-    // verificar se o classId foi enviado
-
-    console.log(id);
 
     if (!id) {
       return response.status(400).json({
@@ -44,19 +39,13 @@ module.exports = {
       });
     }
 
-    // buscar a class usando o model de class com o metodo findByPk
-
     const classData = await Class.findByPk(id);
 
-    //se n tiver class retornar bad request
-
     if (!classData) {
-      return response.status(400).json({
+      return response.status(404).json({
         message: "class not found",
       });
     }
-
-    //sucesso só retornar a class encontrada
 
     return response.json({
       class: classData,
@@ -76,7 +65,7 @@ module.exports = {
     const classToDelete = await Class.findByPk(id);
 
     if (!classToDelete) {
-      return response.status(400).json({
+      return response.status(404).json({
         message: "class not found",
       });
     }
@@ -88,9 +77,7 @@ module.exports = {
     });
   },
   async index(request, response) {
-    const classes = await Class.findAll({
-      attributes: ["name", "shift", "age", "createdAt", "updatedAt"],
-    });
+    const classes = await Class.findAll();
 
     return response.json({
       classes,
@@ -104,6 +91,14 @@ module.exports = {
 
     if (!id) {
       return response.status(400).json({
+        message: "missing data",
+      });
+    }
+
+    const classToUpdate = await Class.findByPk(id);
+
+    if (!classToUpdate) {
+      return response.status(404).json({
         message: "class not found",
       });
     }
