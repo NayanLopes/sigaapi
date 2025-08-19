@@ -1,6 +1,7 @@
 const { Router } = require("express");
 const userController = require("./controllers/user");
 const classController = require("./controllers/class");
+const studentController = require("./controllers/student");
 const userAuthentication = require("./controllers/userAuthentication");
 const ensureAuthenticated = require("./middlewares/ensureAuthenticated");
 const ensureHeadteacher = require("./middlewares/ensureHeadteacher");
@@ -59,5 +60,34 @@ routes.patch(
   ensureHeadteacher,
   classController.update
 );
+
+
+
+routes.post(
+  "/student",
+  ensureAuthenticated,
+  ensureHeadteacher,
+  studentController.store
+);
+routes.get("/student/:id", ensureAuthenticated, studentController.show);
+routes.delete(
+  "/student/:id",
+  ensureAuthenticated,
+  ensureHeadteacher,
+  studentController.delete
+);
+routes.get(
+  "/students",
+  ensureAuthenticated,
+  studentController.index
+);
+routes.patch(
+  "/student/:id",
+  ensureAuthenticated,
+  ensureHeadteacher,
+  studentController.update
+);
+
+
 
 module.exports = routes;

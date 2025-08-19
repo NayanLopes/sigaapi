@@ -2,6 +2,7 @@ const dbConfig = require("../config/config.json");
 const Sequelize = require("sequelize");
 const User = require("./user");
 const Class = require("./class");
+const Student = require("./students");
 
 const env = process.env.NODE_ENV || "development";
 const config = dbConfig[env];
@@ -16,6 +17,7 @@ const connection = new Sequelize(
 const models = [
   User, 
   Class, 
+  Student
 ];
 
 models.forEach((model) => {
@@ -29,4 +31,5 @@ models.forEach((model) => {
 module.exports = {
   User,
   Class,
+  Student,
 };
