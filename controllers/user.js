@@ -1,6 +1,5 @@
 const { hash } = require("bcrypt");
 const { User } = require("../models");
-const { findOne, findAll } = require("../models/user");
 
 module.exports = {
   async store(request, response) {
@@ -38,7 +37,6 @@ module.exports = {
       userCreated: userData,
     });
   },
-
   async show(request, response) {
     const { user } = request;
 
@@ -49,7 +47,6 @@ module.exports = {
       user: userData,
     });
   },
-
   async delete(request, response) {
     const {
       params: { id },
@@ -120,10 +117,10 @@ module.exports = {
         password: newPassword,
       },
       {
-        where: { id }
+        where: { id },
       }
     );
 
-    return response.json({ message:"user updated" });
+    return response.json({ message: "user updated" });
   },
 };
